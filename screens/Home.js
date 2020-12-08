@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, TextInput, Alert} from 'react-native'
+import { StyleSheet, View, Text, TextInput, Alert, TouchableOpacity, Image, Linking} from 'react-native'
 
 export default class Home extends Component {
   constructor(props) {
@@ -66,6 +66,9 @@ export default class Home extends Component {
     this.setState({ punto10: parseInt(point10) })
     this.updateSuma()
   }
+
+  
+  
 
   render() {
     return (
@@ -149,19 +152,27 @@ export default class Home extends Component {
                 parseInt(sumas[5]) * 5 + parseInt(sumas[6]) * 6 + parseInt(sumas[7]) * 7 + 
                 parseInt(sumas[8]) * 8 + parseInt(sumas[9]) * 9 + parseInt(sumas[10]) * 10} */}
         </Text>
+        
+        <View style = {styles.linkWeb}>
+          <TouchableOpacity 
+            style = {styles.imageLink}
+            onPress={visitarWeb}>
+              
+              <Image
+              resizeMode="contain"
+              source={require('../assets/weblink.png')}
+              />
+          </TouchableOpacity>
+        </View>
     </View>
+
     )
   }
 }
 
-// Home.navigationOptions = {
-//   title: 'HIT - Practice Mode',
-//   headerStyle: {
-//     backgroundColor: '#071B40',
-//     height:80
-//   },
-//   headerTintColor: '#fff',
-// };
+function visitarWeb() {
+  Linking.openURL('https://mguntech.com');
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -206,6 +217,15 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 20,
     color: '#fff'
+  },
+  linkWeb:{
+    width: '100%',
+    height:100,
+    //backgroundColor: '#444',
+    alignItems: 'center'
+  },
+  imageLink:{
+    marginTop:'10%'
   }
 })
 
