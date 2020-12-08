@@ -1,13 +1,74 @@
-import React,  { Component } from 'react'
-import { StyleSheet, View, Text, TextInput } from 'react-native'
+import React, { Component } from 'react'
+import { StyleSheet, View, Text, TextInput, Alert} from 'react-native'
 
+export default class Home extends Component {
+  constructor(props) {
+    super(props);    
+    this.state = {
+      punto1: 0,
+      punto2: 0,
+      punto3: 0,
+      punto4: 0,
+      punto5: 0,
+      punto6: 0,
+      punto7: 0,
+      punto8: 0,
+      punto9: 0,
+      punto10: 0,
+      suma: 0
+    };
+  }
 
-function Home(props) {
-  const { navigation } = props
-  
-  var sumas = ['0','0','0','0','0','0','0','0','0','0','0'];
+  updateSuma() {
+    this.setState({ suma: this.state.punto1 + this.state.punto2 * 2 + this.state.punto3 * 3 +
+                      this.state.punto4 * 4 + this.state.punto5 * 5 + this.state.punto6 * 6 +
+                      this.state.punto7 * 7 + this.state.punto8 * 8 + this.state.punto9 * 9 + this.state.punto10 * 10
+    })
+    Alert.alert('updated')
+  }
+  updatePoint1 = (point1) => {
+    this.setState({ punto1: parseInt(point1) })
+    this.updateSuma()
+  }
+  updatePoint2 = (point2) => {
+    this.setState({ punto2: parseInt(point2) })
+    this.updateSuma()
+  }
+  updatePoint3 = (point3) => {
+    this.setState({ punto3: parseInt(point3) })
+    this.updateSuma()
+  }
+  updatePoint4 = (point4) => {
+    this.setState({ punto4: parseInt(point4) })
+    this.updateSuma()
+  }
+  updatePoint5 = (point5) => {
+    this.setState({ punto5: parseInt(point5) })
+    this.updateSuma()
+  }
+  updatePoint6 = (point6) => {
+    this.setState({ punto6: parseInt(point6) })
+    this.updateSuma()
+  }
+  updatePoint7 = (point7) => {
+    this.setState({ punto7: parseInt(point7) })
+    this.updateSuma()
+  }
+  updatePoint8 = (point8) => {
+    this.setState({ punto8: parseInt(point8) })
+    this.updateSuma()
+  }
+  updatePoint9 = (point9) => {
+    this.setState({ punto9: parseInt(point9) })
+    this.updateSuma()
+  }
+  updatePoint10 = (point10) => {
+    this.setState({ punto10: parseInt(point10) })
+    this.updateSuma()
+  }
 
-  return (
+  render() {
+    return (
     <View style={styles.container}>
         <View style={styles.item1}>
             <Text style ={styles.text}>10 x </Text>
@@ -20,29 +81,32 @@ function Home(props) {
             <TextInput
                 style= {styles.textinput}
                 keyboardType = 'number-pad'
-                //onChangeText={numero => setState({x10:numero})}
-                defaultValue={sumas[10]}
+                onChangeText={numero => this.updatePoint10(parseInt(numero))}
+                //defaultValue={this.state.punto10.toString()}
+                value = {this.state.punto10.toString()}
+            >
+              
+            </TextInput>
+            <TextInput
+                style= {styles.textinput}
+                keyboardType = 'number-pad'
+                defaultValue={this.state.punto9.toString()}
             />
             <TextInput
                 style= {styles.textinput}
                 keyboardType = 'number-pad'
-                defaultValue={sumas[9]}
-            />
-            <TextInput
-                style= {styles.textinput}
-                keyboardType = 'number-pad'
-                defaultValue={sumas[8]}
+                defaultValue={this.state.punto8.toString()}
                  
             />
             <TextInput
                 style= {styles.textinput}
                 keyboardType = 'number-pad'
-                defaultValue={sumas[7]}
+                defaultValue={this.state.punto7.toString()}
             />
             <TextInput
                 style= {styles.textinput}
                 keyboardType = 'number-pad'
-                defaultValue={sumas[6]}
+                defaultValue={this.state.punto6.toString()}
             />
         </View>
         <View style={styles.item1}>
@@ -56,37 +120,48 @@ function Home(props) {
         <TextInput
                 style= {styles.textinput}
                 keyboardType = 'number-pad'
-                defaultValue={sumas[5]}
+                defaultValue={this.state.punto5.toString()}
             />
             <TextInput
                 style= {styles.textinput}
                 keyboardType = 'number-pad'
-                defaultValue={sumas[4]}
+                defaultValue={this.state.punto4.toString()}
             />
             <TextInput
                 style= {styles.textinput}
                 keyboardType = 'number-pad'
-                defaultValue={sumas[3]}
+                defaultValue={this.state.punto3.toString()}
             />
             <TextInput
                 style= {styles.textinput}
                 keyboardType = 'number-pad'
-                defaultValue={sumas[2]}
+                defaultValue={this.state.punto2.toString()}
             />
             <TextInput
                 style= {styles.textinput}
                 keyboardType = 'number-pad'
-                defaultValue={sumas[1]}
+                defaultValue={this.state.punto1.toString()}
             />
         </View>
         <Text style = {styles.text} >
-            Total = {parseInt(sumas[1]) + parseInt(sumas[2]) * 2 + parseInt(sumas[3]) * 3 + parseInt(sumas[4]) * 4 + 
+          Total: {this.state.suma.toString()}
+            {/* Total = {parseInt(sumas[1]) + parseInt(sumas[2]) * 2 + parseInt(sumas[3]) * 3 + parseInt(sumas[4]) * 4 + 
                 parseInt(sumas[5]) * 5 + parseInt(sumas[6]) * 6 + parseInt(sumas[7]) * 7 + 
-                parseInt(sumas[8]) * 8 + parseInt(sumas[9]) * 9 + parseInt(sumas[10]) * 10}
+                parseInt(sumas[8]) * 8 + parseInt(sumas[9]) * 9 + parseInt(sumas[10]) * 10} */}
         </Text>
     </View>
-  )
+    )
+  }
 }
+
+// Home.navigationOptions = {
+//   title: 'HIT - Practice Mode',
+//   headerStyle: {
+//     backgroundColor: '#071B40',
+//     height:80
+//   },
+//   headerTintColor: '#fff',
+// };
 
 const styles = StyleSheet.create({
   container: {
@@ -134,4 +209,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Home
+//export default Home
