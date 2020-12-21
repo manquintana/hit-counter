@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text, TextInput, Alert, TouchableOpacity, Image, Linking} from 'react-native'
-
+import { Ionicons } from '@expo/vector-icons';
 export default class Home extends Component {
   constructor(props) {
     super(props);    
@@ -111,6 +111,7 @@ export default class Home extends Component {
                 keyboardType = 'number-pad'
                 defaultValue={this.state.punto6.toString()}
             />
+            
         </View>
         <View style={styles.item1}>
             <Text style ={styles.text}>  5 x</Text>
@@ -118,7 +119,9 @@ export default class Home extends Component {
             <Text style ={styles.text}>  3 x</Text>
             <Text style ={styles.text}>  2 x</Text>
             <Text style ={styles.text}>  1 x</Text>
+
         </View>
+
         <View style={styles.item2}>
         <TextInput
                 style= {styles.textinput}
@@ -146,14 +149,32 @@ export default class Home extends Component {
                 defaultValue={this.state.punto1.toString()}
             />
         </View>
-        <Text style = {styles.text} >
-          Total: {this.state.suma.toString()}
-            {/* Total = {parseInt(sumas[1]) + parseInt(sumas[2]) * 2 + parseInt(sumas[3]) * 3 + parseInt(sumas[4]) * 4 + 
-                parseInt(sumas[5]) * 5 + parseInt(sumas[6]) * 6 + parseInt(sumas[7]) * 7 + 
-                parseInt(sumas[8]) * 8 + parseInt(sumas[9]) * 9 + parseInt(sumas[10]) * 10} */}
-        </Text>
+        <View style= {styles.buttonsView}>
+          <View style={styles.button1}>
+            <TouchableOpacity
+                style = {styles.buttonImage}
+                onPress={visitarWeb}>
+                <Ionicons name="md-calculator" size={40} color="white"/> 
+            </TouchableOpacity>
+          </View>
+          <View style={styles.button2}>
+            <TouchableOpacity
+                  style = {styles.buttonImage}
+                  onPress={visitarWeb}>
+                  <Ionicons name="md-refresh" size={40} color="white"/> 
+            </TouchableOpacity>
+          </View>
+          
+        </View>
         
-        <View style = {styles.linkWeb}>
+  
+        
+        <View style = {styles.viewCenter}>
+          <Text style = {styles.cleanText} >  
+              Total: {this.state.suma.toString()}
+          </Text>
+        </View>
+        <View style= {styles.linkWeb}>
           <TouchableOpacity 
             style = {styles.imageLink}
             onPress={visitarWeb}>
@@ -184,12 +205,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#0d3580'
   },
   item1: {
-    marginTop: '10%',
+    marginTop: '2%',
     paddingLeft: '10%',
     width: '25%'
   },
   item2: {
-    marginTop: '10%',
+    marginTop: '2%',
     // paddingLeft: '10%',
     width: '25%'
   },
@@ -197,6 +218,11 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 26,
     marginTop: 20
+  },
+  cleanText: {
+    color: '#fff',
+    fontSize: 30,
+    marginTop: 0
   },
   textinput:{
     width:50, 
@@ -218,15 +244,54 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#fff'
   },
-  linkWeb:{
+
+  buttonsView:{
+    width:'100%',
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    marginTop:'8%',
+    marginBottom:'5%'
+    
+  },
+  button1: {
+    borderWidth:1,
+    borderColor:'rgba(0,0,0,0.2)',
+    alignItems:'center',
+    justifyContent:'center',
+    width:60,
+    height:60,
+    backgroundColor:'#051940',
+    borderRadius:50,
+    marginRight:'5%'
+  },
+  button2: {
+    borderWidth:1,
+    borderColor:'rgba(0,0,0,0.2)',
+    alignItems:'center',
+    justifyContent:'center',
+    width:60,
+    height:60,
+    backgroundColor:'#051940',
+    borderRadius:50,
+  },
+
+  viewCenter:{
     width: '100%',
-    height:100,
+    height:'auto',
+    marginTop: 0,
     //backgroundColor: '#444',
     alignItems: 'center'
   },
-  imageLink:{
-    marginTop:'10%'
+  linkWeb:{
+    width: '100%',
+    height:'auto',
+    position: 'absolute',
+    bottom:0,
+    alignItems:'center',
   }
+
 })
 
 //export default Home
