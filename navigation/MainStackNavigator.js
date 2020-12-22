@@ -5,6 +5,7 @@ import { Image } from 'react-native'
 
 import Home from '../screens/Home'
 import Menu from '../screens/Menu'
+
 const Stack = createStackNavigator()
 
 function MainStackNavigator() {
@@ -21,11 +22,6 @@ function MainStackNavigator() {
                     source={require('../assets/hitlogo.png')}
                     resizeMode='center'
                   />),
-              // title: <Image 
-            //                     style={{ width: 250, height: 50 }}
-            //                     source = {{"../assets/hitlogo.png"}}
-            //                     />,
-                        // title: 'HIT',
                         headerStyle: {backgroundColor: '#051940'},
                         headerTintColor: '#fff',
                         
@@ -38,7 +34,7 @@ function MainStackNavigator() {
         <Stack.Screen
             name='Menu'
             component={Menu}
-            options={{  title: 'Menu',
+            options={{  title: 'hit - Menu',
                         headerStyle: {backgroundColor: '#051940'},
                         headerTintColor: '#fff'
                     }}

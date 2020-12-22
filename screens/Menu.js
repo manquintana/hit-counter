@@ -1,8 +1,9 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, Linking } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, Linking, BackHandler} from 'react-native'
 
 function Menu(props) {
-    const { navigation } = props
+  
+  const { navigation } = props
   return (
     <View style={styles.container}>
 
@@ -18,13 +19,17 @@ function Menu(props) {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.buttonContainer}
-        onPress={() => navigation.navigate('Menu')}>
+        onPress={() => exitApp(navigation)}>
         <Text style={styles.buttonText}>Exit App</Text>
       </TouchableOpacity>
     </View>
   )
 }
 
+function exitApp(navigation){
+  navigation.navigate('Home')
+  BackHandler.exitApp()
+}
 const styles = StyleSheet.create({
     container: {
       flex: 1,

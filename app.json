@@ -3,13 +3,16 @@
   "displayName": "hit",
   "expo": {
     "name": "hit",
-    "slug": "hit",
+    "slug": "hit-counter",
+    "description": "hit - Helps you with the accuracy count in the shooting range",
     "version": "1.0.0",
     "splash": {
       "image": "./assets/splash.png",
       "backgroundColor": "#fff",
       "resizeMode": "contain"
     },
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
     "assetBundlePatterns": [
       "**/*"
     ]

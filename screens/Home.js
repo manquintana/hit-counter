@@ -3,7 +3,9 @@ import { StyleSheet, View, Text, TextInput, Alert, TouchableOpacity, Image, Link
 import { Ionicons } from '@expo/vector-icons';
 
 
-export default class Home extends Component {
+
+export default class Home extends Component{
+  
   constructor(props) {
     super(props);    
     this.state = {
@@ -31,21 +33,25 @@ export default class Home extends Component {
  
  
   resetAllOk = () => {
+    
+    this.props.navigation.navigate('Home')
+    //Stack.navigate('Home')
+    //Restart();
     //Expo.Util.reload()
-    console.log('All values are being deleted')
-    this.setState({
-      punto1: 0,
-      punto2: 0,
-      punto3: 0,
-      punto4: 0,
-      punto5: 0,
-      punto6: 0,
-      punto7: 0,
-      punto8: 0,
-      punto9: 0,
-      punto10: 0,
-      suma: 0 })
-    console.log('Suma:' + this.state.suma )
+    // console.log('All values are being deleted')
+    // this.setState({
+    //   punto1: 0,
+    //   punto2: 0,
+    //   punto3: 0,
+    //   punto4: 0,
+    //   punto5: 0,
+    //   punto6: 0,
+    //   punto7: 0,
+    //   punto8: 0,
+    //   punto9: 0,
+    //   punto10: 0,
+    //   suma: 0 })
+    // console.log('Suma:' + this.state.suma )
     
   }
   resetAll = () => {
@@ -166,11 +172,8 @@ export default class Home extends Component {
                 style= {styles.textinput}
                 keyboardType = 'number-pad'
                 onChangeText={numero => this.updatePoint10(parseInt(numero))}
-                //gotFocus = {}
-                //value = {this.state.punto10.toString()}
-            >
-              
-            </TextInput>
+            
+            />
             <TextInput
                 style= {styles.textinput}
                 keyboardType = 'number-pad'
@@ -231,6 +234,10 @@ export default class Home extends Component {
                 onChangeText={numero => this.updatePoint1(parseInt(numero))}
             />
         </View>
+
+        {/* ***********
+          Buttons Area 
+        ************* */}
         <View style= {styles.buttonsView}>
           <View style={styles.button1}>
             <TouchableOpacity
@@ -243,14 +250,18 @@ export default class Home extends Component {
             <TouchableOpacity
                   style = {styles.buttonImage}
                   onPress={() => this.resetAll()}>
-                  
                   <Ionicons name="md-refresh" size={40} color="white"/> 
             </TouchableOpacity>
           </View>
-          
+          <View style={styles.button3}>
+            <TouchableOpacity
+                  style = {styles.buttonImage}
+                  onPress={() => this.props.navigation.navigate('Menu')}>
+                  <Ionicons name="md-menu" size={40} color="white"/> 
+            </TouchableOpacity>
+          </View>
         </View>
-        
-  
+         
         
         <View style = {styles.viewCenter}>
           <Text style = {styles.cleanText} >  
@@ -350,6 +361,17 @@ const styles = StyleSheet.create({
     marginRight:'5%'
   },
   button2: {
+    borderWidth:1,
+    borderColor:'rgba(0,0,0,0.2)',
+    alignItems:'center',
+    justifyContent:'center',
+    width:60,
+    height:60,
+    backgroundColor:'#051940',
+    borderRadius:50,
+    marginRight:'5%'
+  },
+  button3: {
     borderWidth:1,
     borderColor:'rgba(0,0,0,0.2)',
     alignItems:'center',
