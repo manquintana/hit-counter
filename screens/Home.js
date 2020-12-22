@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, TextInput, Alert, TouchableOpacity, Image, Link
 import { Ionicons } from '@expo/vector-icons';
 
 
-
 export default class Home extends Component {
   constructor(props) {
     super(props);    
@@ -32,7 +31,8 @@ export default class Home extends Component {
  
  
   resetAllOk = () => {
-    console.log('All is being deleted')
+    //Expo.Util.reload()
+    console.log('All values are being deleted')
     this.setState({
       punto1: 0,
       punto2: 0,
@@ -46,6 +46,7 @@ export default class Home extends Component {
       punto10: 0,
       suma: 0 })
     console.log('Suma:' + this.state.suma )
+    
   }
   resetAll = () => {
     Alert.alert(

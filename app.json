@@ -5,6 +5,11 @@
     "name": "hit",
     "slug": "hit",
     "version": "1.0.0",
+    "splash": {
+      "image": "./assets/splash.png",
+      "backgroundColor": "#fff",
+      "resizeMode": "contain"
+    },
     "assetBundlePatterns": [
       "**/*"
     ]
