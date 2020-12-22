@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, TextInput, Alert, TouchableOpacity, Image, Link
 import { Ionicons } from '@expo/vector-icons';
 
 
-
 export default class Home extends Component{
   
   constructor(props) {
@@ -33,26 +32,8 @@ export default class Home extends Component{
  
  
   resetAllOk = () => {
-    
-    this.props.navigation.navigate('Home')
-    //Stack.navigate('Home')
-    //Restart();
-    //Expo.Util.reload()
-    // console.log('All values are being deleted')
-    // this.setState({
-    //   punto1: 0,
-    //   punto2: 0,
-    //   punto3: 0,
-    //   punto4: 0,
-    //   punto5: 0,
-    //   punto6: 0,
-    //   punto7: 0,
-    //   punto8: 0,
-    //   punto9: 0,
-    //   punto10: 0,
-    //   suma: 0 })
-    // console.log('Suma:' + this.state.suma )
-    
+    this.props.navigation.replace('Home')
+    console.log('Navigation cleared')
   }
   resetAll = () => {
     Alert.alert(
