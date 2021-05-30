@@ -15,6 +15,9 @@
     "icon": "./assets/icon.png",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "package": "com.mguntech.hitcounter"
+    }
   }
 }
