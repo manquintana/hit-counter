@@ -4,7 +4,7 @@
   "expo": {
     "name": "hit",
     "slug": "hit-counter",
-    "description": "hit - Helps you with the accuracy count in the shooting range",
+    "description": "hit-calculator allows you to get a fast counting of points after each round of shots",
     "version": "1.0.0",
     "splash": {
       "image": "./assets/splash.png",
